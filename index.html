@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Profile</title>
+  <title>Your Name - Data Analyst Profile</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f4f4f9;
+      background: #f9fafc;
       color: #333;
+      line-height: 1.6;
     }
     header {
-      background: #4a90e2;
-      color: white;
+      background: #1f3c88;
+      color: #fff;
       padding: 2rem 1rem;
       text-align: center;
     }
@@ -27,14 +27,14 @@
     }
     header h1 {
       margin: 0;
-      font-size: 2rem;
+      font-size: 2.2rem;
     }
     header p {
       font-size: 1.1rem;
-      margin: 0.5rem 0 0;
+      margin-top: 0.5rem;
     }
     main {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
@@ -42,28 +42,46 @@
       margin-bottom: 2rem;
     }
     h2 {
-      border-bottom: 2px solid #ddd;
+      border-bottom: 3px solid #1f3c88;
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
+      color: #1f3c88;
     }
     ul {
       list-style: none;
       padding: 0;
     }
     ul li {
-      margin: 0.5rem 0;
+      margin-bottom: 0.6rem;
     }
-    .social a {
-      margin-right: 1rem;
-      text-decoration: none;
-      color: #4a90e2;
-      font-weight: bold;
+    .job {
+      margin-bottom: 1.5rem;
+    }
+    .job h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #1f3c88;
+    }
+    .job p {
+      margin: 0.2rem 0 0.6rem;
+      font-style: italic;
+      font-size: 0.95rem;
     }
     footer {
       text-align: center;
       padding: 1rem;
       background: #eee;
       font-size: 0.9rem;
+    }
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.5rem;
+    }
+    .skills-list li {
+      background: #eaf0ff;
+      padding: 0.5rem;
+      border-radius: 6px;
     }
   </style>
 </head>
@@ -72,50 +90,108 @@
   <header>
     <img src="profile.jpg" alt="Profile Picture">
     <h1>Your Name</h1>
-    <p>Web Developer | Designer | Creator</p>
+    <p>Freelance Data Analyst | Business Intelligence | Data Visualization</p>
   </header>
 
   <main>
+    <!-- About -->
     <section>
       <h2>About Me</h2>
       <p>
-        Hi! I’m [Your Name], a passionate developer who loves building clean,
-        functional, and user-friendly digital experiences. I’m always curious
-        about learning new technologies and improving my craft.
+        I’m a Data Analyst with strong experience in business intelligence, data visualization, and analytics solutions across diverse industries. 
+        Skilled in tools like Tableau, Power BI, QlikView, and technologies including Python, R, SQL, and AWS, I bring a blend of technical expertise 
+        and business acumen to deliver impactful insights and solutions.
       </p>
     </section>
 
+    <!-- Work Experience -->
+    <section>
+      <h2>Work Experience</h2>
+
+      <div class="job">
+        <h3>Freelance Data Analyst</h3>
+        <p>Limerick, Ireland | Oct 2023 – Present</p>
+        <ul>
+          <li><strong>Project 1: Limerick Strand Hotel</strong> – Built Tableau dashboards, automated procurement order scraping with Python + Selenium, 
+          cleaned raw CSV data with Pandas & Numpy, and developed ARIMA/SARIMA forecasts for inventory planning.</li>
+          <li><strong>Project 2: AMS – BrakesIndia</strong> – Maintained QlikView dashboards and resolved data extraction process bugs.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Project Lead – Data Analytics</h3>
+        <p>Indium, Chennai | Apr 2018 – Aug 2022</p>
+        <ul>
+          <li>Led visualization projects using Power BI, Tableau, QlikView, and Apache Superset.</li>
+          <li>Designed solutions on AWS & Azure, handled data migrations, and implemented CI/CD pipelines.</li>
+          <li>Built dashboards for construction analytics, manufacturing, and sales insights.</li>
+          <li>Applied ML techniques (Market Basket Analysis, RFM, Classification) to solve client challenges.</li>
+          <li>Hosted RShiny dashboards on AWS EC2; supported presales with RFPs and solution architectures.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Project Coordinator</h3>
+        <p>Ur-Channel, Mississauga | May 2016 – Feb 2017</p>
+        <ul>
+          <li>Gathered requirements, managed risks/issues, and maintained dashboards for leadership.</li>
+          <li>Tracked budgets and resource utilization; managed CRM-based invoicing & inventory.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Salesforce Admin</h3>
+        <p>Belmar Consulting, Canada | Aug 2014 – Jun 2015</p>
+        <ul>
+          <li>Customized Salesforce CRM (objects, workflows, Visualforce) and managed deployments.</li>
+          <li>Created dashboards/reports for stakeholders in the BC Government domain.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Incident Management Analyst</h3>
+        <p>Tata Consultancy Services, India | Apr 2006 – Jan 2010</p>
+        <ul>
+          <li>Supported Nielsen Company employees across US, Europe, and NZ with incident management.</li>
+          <li>Handled escalations, monitored ticket severity, and trained associates on best practices.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Technical Support</h3>
+        <p>Sutherland Global Services, India | Apr 2004 – Oct 2006</p>
+        <ul>
+          <li>Provided QuickBooks technical support for US clients, including data recovery and Excel exports.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Skills -->
     <section>
       <h2>Skills</h2>
-      <ul>
-        <li>💻 HTML, CSS, JavaScript</li>
-        <li>⚛️ React & Frontend Development</li>
-        <li>🛠️ Node.js & Backend Basics</li>
-        <li>🎨 UI/UX Design</li>
+      <ul class="skills-list">
+        <li>Tableau, Power BI, QlikView, Apache Superset</li>
+        <li>Python (Pandas, Numpy, Selenium, ARIMA, SARIMA)</li>
+        <li>R & RShiny</li>
+        <li>SQL & PostgreSQL</li>
+        <li>Azure, AWS, CI/CD</li>
+        <li>Salesforce CRM Administration</li>
+        <li>Data Wrangling & ETL</li>
+        <li>Forecasting & Predictive Analytics</li>
       </ul>
     </section>
 
+    <!-- Contact -->
     <section>
-      <h2>Projects</h2>
-      <ul>
-        <li><a href="#">Portfolio Website</a> – A showcase of my work and experiments.</li>
-        <li><a href="#">To-Do App</a> – A productivity app built with JavaScript.</li>
-        <li><a href="#">Design System</a> – A reusable UI component library.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Connect</h2>
-      <div class="social">
-        <a href="#">LinkedIn</a>
-        <a href="#">GitHub</a>
-        <a href="#">Twitter</a>
-      </div>
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:yourname@email.com">yourname@email.com</a></p>
+      <p>LinkedIn: <a href="#">linkedin.com/in/yourprofile</a></p>
+      <p>GitHub: <a href="#">github.com/yourprofile</a></p>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Your Name. All rights reserved.
+    &copy; 2025 Your Name | All Rights Reserved
   </footer>
 
 </body>
