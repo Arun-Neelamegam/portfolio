@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arun Neelamegam - Data Analyst</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f9;
+      color: #333;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    aside {
+      width: 260px;
+      background: #142850;
+      color: #fff;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    aside img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+    aside h1 {
+      font-size: 1.4rem;
+      text-align: center;
+      margin: 0;
+    }
+    aside p {
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 0.4rem;
+      color: #dbe4f0;
+    }
+    nav {
+      margin-top: 2rem;
+      width: 100%;
+    }
+    nav a {
+      display: block;
+      padding: 0.8rem 1rem;
+      margin: 0.3rem 0;
+      text-decoration: none;
+      color: #fff;
+      background: #27496d;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: #00909e;
+    }
+
+    /* Main Content */
+    main {
+      flex: 1;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+    section {
+      margin-bottom: 2.5rem;
+    }
+    h2 {
+      border-left: 5px solid #00909e;
+      padding-left: 0.6rem;
+      margin-bottom: 1rem;
+      color: #142850;
+    }
+    .card {
+      background: #fff;
+      padding: 1.2rem;
+      border-radius: 10px;
+      box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+    }
+    .job h3 {
+      margin: 0;
+      color: #00909e;
+    }
+    .job p {
+      margin: 0.3rem 0 0.8rem;
+      font-style: italic;
+      color: #555;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .grid li {
+      background: #e9f5f9;
+      padding: 0.8rem;
+      border-radius: 6px;
+      list-style: none;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside>
+    <img src="images/arun3.png" alt="Profile Picture">
+    <h1>Arun Neelamegam</h1>
+    <p>Data Analyst | BI | Visualization</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="card">
+        <p>
+          I’m a Data Analyst with strong experience in BI, data visualization, and analytics solutions across diverse industries.
+          Certified AWS Cloud Practitioner. Skilled in Tableau, Power BI, QlikView, Python, R, SQL, and AWS — I bring both technical expertise
+          and business acumen to deliver actionable insights.
+        </p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Work Experience</h2>
+
+      <div class="card job">
+        <h3>Freelance Data Analyst</h3>
+        <p>Limerick, Ireland | Oct 2023 – Present</p>
+        <ul>
+          <li><strong>Limerick Strand Hotel:</strong> Built Tableau dashboards, automated order scraping with Python + Selenium, and applied ARIMA/SARIMA forecasts for inventory planning.</li>
+          <li><strong>AMS – BrakesIndia:</strong> Maintained QlikView dashboards and debugged data extraction processes.</li>
+        </ul>
+      </div>
+
+      <div class="card job">
+        <h3>Project Lead – Data Analytics</h3>
+        <p>Indium, Chennai | Apr 2018 – Aug 2022</p>
+        <ul>
+          <li>Led projects using Power BI, Tableau, QlikView, and Apache Superset.</li>
+          <li>Designed solutions on AWS & Azure with CI/CD pipelines.</li>
+          <li>Applied ML techniques (Market Basket Analysis, RFM, Classification).</li>
+        </ul>
+      </div>
+
+      <!-- Add other jobs similarly -->
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="grid">
+        <li>Tableau, Power BI, QlikView</li>
+        <li>Python (Pandas, Numpy, Selenium, Forecasting)</li>
+        <li>R & RShiny</li>
+        <li>SQL & PostgreSQL</li>
+        <li>Azure, AWS, CI/CD</li>
+        <li>Data Wrangling & ETL</li>
+        <li>Forecasting & Predictive Analytics</li>
+        <li>Salesforce CRM</li>
+      </ul>
+    </section>
+
+    <section id="certifications">
+      <h2>Certifications</h2>
+      <ul class="grid">
+        <li>
+          <a href="images/AWS Certified Cloud Practitioner certificate.pdf" target="_blank">
+            <strong>AWS Certified Cloud Practitioner (CLF-C02)</strong>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <p>Email: <a href="mailto:arun.neelamegam2@gmail.com">arun.neelamegam2@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/arun-neelamegam/details/experience/" target="_blank">linkedin.com/in/arun-neelamegam</a></p>
+        <p>GitHub: <a href="https://github.com/yourprofile" target="_blank">github.com/yourprofile</a></p>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2025 Arun Neelamegam | All Rights Reserved
+    </footer>
+  </main>
+
+</body>
+</html>
