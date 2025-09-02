@@ -3,213 +3,212 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arun Neelamegam - Data Analyst Profile</title>
-  
+  <title>Arun Neelamegam - Data Analyst</title>
 
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: #f9fafc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f9;
       color: #333;
-      line-height: 1.6;
+      display: flex;
+      min-height: 100vh;
     }
-    header {
-      background: #1f3c88;
+
+    /* Sidebar */
+    aside {
+      width: 260px;
+      background: #142850;
       color: #fff;
       padding: 2rem 1rem;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    header img {
-      width: 175px;              /* increased size for better visibility */
-      height: 175px;
-      border-radius: 50%;        /* makes it circular */
-      border: 4px solid white;
-      object-fit: cover;         /* fills the circle without stretching */
-      object-position: center;   /* keeps the face centered */
+    aside img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      object-fit: cover;
       margin-bottom: 1rem;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.3); /* optional soft shadow */
     }
-    header h1 {
+    aside h1 {
+      font-size: 1.4rem;
+      text-align: center;
       margin: 0;
-      font-size: 2.2rem;
     }
-    header p {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
+    aside p {
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 0.4rem;
+      color: #dbe4f0;
     }
+    nav {
+      margin-top: 2rem;
+      width: 100%;
+    }
+    nav a {
+      display: block;
+      padding: 0.8rem 1rem;
+      margin: 0.3rem 0;
+      text-decoration: none;
+      color: #fff;
+      background: #27496d;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: #00909e;
+    }
+
+    /* Main Content */
     main {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      flex: 1;
+      padding: 2rem;
+      overflow-y: auto;
     }
     section {
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
     h2 {
-      border-bottom: 3px solid #1f3c88;
-      padding-bottom: 0.5rem;
+      border-left: 5px solid #00909e;
+      padding-left: 0.6rem;
       margin-bottom: 1rem;
-      color: #1f3c88;
+      color: #142850;
     }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    ul li {
-      margin-bottom: 0.6rem;
-    }
-    .job {
-      margin-bottom: 1.5rem;
+    .card {
+      background: #fff;
+      padding: 1.2rem;
+      border-radius: 10px;
+      box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
     }
     .job h3 {
       margin: 0;
-      font-size: 1.2rem;
-      color: #1f3c88;
+      color: #00909e;
     }
     .job p {
-      margin: 0.2rem 0 0.6rem;
+      margin: 0.3rem 0 0.8rem;
       font-style: italic;
-      font-size: 0.95rem;
+      color: #555;
     }
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .grid li {
+      background: #e9f5f9;
+      padding: 0.8rem;
+      border-radius: 6px;
+      list-style: none;
+    }
+
     footer {
       text-align: center;
-      padding: 1rem;
-      background: #eee;
-      font-size: 0.9rem;
-    }
-    .skills-list, .cert-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 0.5rem;
-    }
-    .skills-list li, .cert-list li {
-      background: #eaf0ff;
-      padding: 0.5rem;
-      border-radius: 6px;
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
 
-  <header>
+  <!-- Sidebar -->
+  <aside>
     <img src="images/arun3.png" alt="Profile Picture">
     <h1>Arun Neelamegam</h1>
-    <p>Data Analyst | Business Intelligence | Data Visualization</p>
-  </header>
+    <p>Data Analyst | BI | Visualization</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
 
+  <!-- Main -->
   <main>
-    <!-- About -->
-    <section>
+    <section id="about">
       <h2>About Me</h2>
-      <p>
-        I’m a Data Analyst with strong experience in business intelligence, data visualization, and analytics solutions across diverse industries. Certified in  AWS Cloud Practitioner.
-        Skilled in tools like Tableau, Power BI, QlikView, and technologies including Python, R, SQL, and AWS, I bring a blend of technical expertise 
-        and business acumen to deliver impactful insights and solutions.
-      </p>
+      <div class="card">
+        <p>
+          I’m a Data Analyst with strong experience in BI, data visualization, and analytics solutions across diverse industries.
+          Certified AWS Cloud Practitioner. Skilled in Tableau, Power BI, QlikView, Python, R, SQL, and AWS — I bring both technical expertise
+          and business acumen to deliver actionable insights.
+        </p>
+      </div>
     </section>
 
-    <!-- Work Experience -->
-    <section>
+    <section id="experience">
       <h2>Work Experience</h2>
 
-      <div class="job">
+      <div class="card job">
         <h3>Freelance Data Analyst</h3>
         <p>Limerick, Ireland | Oct 2023 – Present</p>
         <ul>
-          <li><strong>Project 1: Limerick Strand Hotel</strong> – Built Tableau dashboards, automated procurement order scraping with Python + Selenium, 
-          cleaned raw CSV data with Pandas & Numpy, and developed ARIMA/SARIMA forecasts for inventory planning.</li>
-          <li><strong>Project 2: AMS – BrakesIndia</strong> – Maintained QlikView dashboards and resolved data extraction process bugs.</li>
+          <li><strong>Limerick Strand Hotel:</strong> Built Tableau dashboards, automated order scraping with Python + Selenium, and applied ARIMA/SARIMA forecasts for inventory planning.</li>
+          <li><strong>AMS – BrakesIndia:</strong> Maintained QlikView dashboards and debugged data extraction processes.</li>
         </ul>
       </div>
 
-      <div class="job">
+      <div class="card job">
         <h3>Project Lead – Data Analytics</h3>
         <p>Indium, Chennai | Apr 2018 – Aug 2022</p>
         <ul>
-          <li>Led visualization projects using Power BI, Tableau, QlikView, and Apache Superset.</li>
-          <li>Designed solutions on AWS & Azure, handled data migrations, and implemented CI/CD pipelines.</li>
-          <li>Built dashboards for construction analytics, manufacturing, and sales insights.</li>
-          <li>Applied ML techniques (Market Basket Analysis, RFM, Classification) to solve client challenges.</li>
-          <li>Hosted RShiny dashboards on AWS EC2; supported presales with RFPs and solution architectures.</li>
+          <li>Led projects using Power BI, Tableau, QlikView, and Apache Superset.</li>
+          <li>Designed solutions on AWS & Azure with CI/CD pipelines.</li>
+          <li>Applied ML techniques (Market Basket Analysis, RFM, Classification).</li>
         </ul>
       </div>
 
-      <div class="job">
-        <h3>Project Coordinator</h3>
-        <p>Ur-Channel, Mississauga | May 2016 – Feb 2017</p>
-        <ul>
-          <li>Gathered requirements, managed risks/issues, and maintained dashboards for leadership.</li>
-          <li>Tracked budgets and resource utilization; managed CRM-based invoicing & inventory.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <h3>Salesforce Admin</h3>
-        <p>Belmar Consulting, Canada | Aug 2014 – Jun 2015</p>
-        <ul>
-          <li>Customized Salesforce CRM (objects, workflows, Visualforce) and managed deployments.</li>
-          <li>Created dashboards/reports for stakeholders in the BC Government domain.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <h3>Incident Management Analyst</h3>
-        <p>Tata Consultancy Services, India | Apr 2006 – Jan 2010</p>
-        <ul>
-          <li>Supported Nielsen Company employees across US, Europe, and NZ with incident management.</li>
-          <li>Handled escalations, monitored ticket severity, and trained associates on best practices.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <h3>Technical Support</h3>
-        <p>Sutherland Global Services, India | Apr 2004 – Oct 2006</p>
-        <ul>
-          <li>Provided QuickBooks technical support for US clients, including data recovery and Excel exports.</li>
-        </ul>
-      </div>
+      <!-- Add other jobs similarly -->
     </section>
 
-    <!-- Skills -->
-    <section>
+    <section id="skills">
       <h2>Skills</h2>
-      <ul class="skills-list">
-        <li>Tableau, Power BI, QlikView, Apache Superset</li>
-        <li>Python (Pandas, Numpy, Selenium, ARIMA, SARIMA)</li>
+      <ul class="grid">
+        <li>Tableau, Power BI, QlikView</li>
+        <li>Python (Pandas, Numpy, Selenium, Forecasting)</li>
         <li>R & RShiny</li>
         <li>SQL & PostgreSQL</li>
         <li>Azure, AWS, CI/CD</li>
-        <li>Salesforce CRM Administration</li>
         <li>Data Wrangling & ETL</li>
         <li>Forecasting & Predictive Analytics</li>
+        <li>Salesforce CRM</li>
       </ul>
     </section>
 
-    <!-- Certifications -->
-    <section>
+    <section id="certifications">
       <h2>Certifications</h2>
-      <ul class="cert-list">
+      <ul class="grid">
         <li>
-          <a href="images/AWS Certified Cloud Practitioner certificate.pdf" onclick="openCertificates(); return false;" target="_blank">
+          <a href="images/AWS Certified Cloud Practitioner certificate.pdf" target="_blank">
             <strong>AWS Certified Cloud Practitioner (CLF-C02)</strong>
           </a>
         </li>
       </ul>
     </section>
 
-    <!-- Contact -->
-    <section>
+    <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:arun.neelamegam2@gmail.com">arun.neelamegam2@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/arun-neelamegam/details/experience/" target="_blank">linkedin.com/in/arun-neelamegam</a></p>
-      <p>GitHub: <a href="https://github.com/yourprofile" target="_blank">github.com/yourprofile</a></p>
+      <div class="card">
+        <p>Email: <a href="mailto:arun.neelamegam2@gmail.com">arun.neelamegam2@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/arun-neelamegam/details/experience/" target="_blank">linkedin.com/in/arun-neelamegam</a></p>
+        <p>GitHub: <a href="https://github.com/yourprofile" target="_blank">github.com/yourprofile</a></p>
+      </div>
     </section>
+
+    <footer>
+      &copy; 2025 Arun Neelamegam | All Rights Reserved
+    </footer>
   </main>
 
-  <footer>
-    &copy; 2025 Arun Neelamegam | All Rights Reserved
-  </footer>
-  
 </body>
 </html>
