@@ -3,129 +3,172 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css\style.css">
   <title>Arun Neelamegam - Data Analyst</title>
-
-
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f6f9;
+      background: #f5f7fa;
       color: #333;
-      display: flex;
-      min-height: 100vh;
     }
 
-    /* Sidebar */
-    aside {
-      width: 260px;
+    /* Navbar */
+    header {
       background: #142850;
-      color: #fff;
-      padding: 2rem 1rem;
+      color: white;
+      padding: 1rem 2rem;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    aside img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 3px solid #fff;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
-    aside h1 {
+    header h1 {
       font-size: 1.4rem;
-      text-align: center;
       margin: 0;
-    }
-    aside p {
-      font-size: 0.9rem;
-      text-align: center;
-      margin-top: 0.4rem;
-      color: #dbe4f0;
-    }
-    nav {
-      margin-top: 2rem;
-      width: 100%;
     }
     nav a {
-      display: block;
-      padding: 0.8rem 1rem;
-      margin: 0.3rem 0;
+      color: white;
       text-decoration: none;
-      color: #fff;
-      background: #27496d;
-      border-radius: 6px;
-      transition: background 0.3s;
+      margin-left: 1rem;
+      font-weight: 500;
     }
     nav a:hover {
-      background: #00909e;
+      color: #00a8cc;
     }
 
-    /* Main Content */
-    main {
-      flex: 1;
-      padding: 2rem;
-      overflow-y: auto;
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      background: linear-gradient(120deg, #00909e, #142850);
+      color: white;
     }
+    .hero img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1.2s ease forwards;
+    }
+    .hero h2, .hero p {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s ease forwards;
+    }
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      animation-delay: 0.3s;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      animation-delay: 0.6s;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Sections */
     section {
-      margin-bottom: 2.5rem;
+      padding: 1rem 1rem;
+      max-width: 1000px;
+      margin: auto;
     }
     h2 {
-      border-left: 5px solid #00909e;
+      margin-bottom: 1.5rem;
+      color: #c49a26;
+       
+      border-left: 5px solid #00a8cc;
       padding-left: 0.6rem;
-      margin-bottom: 1rem;
-      color: #142850;
+    }
+
+    /* Card Layout */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
     }
     .card {
-      background: #fff;
-      padding: 1.2rem;
-      border-radius: 10px;
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
       box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
-      margin-bottom: 1rem;
+      transition: transform 0.2s;
     }
-    .job h3 {
-      margin: 0;
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      margin-top: 0;
       color: #00909e;
     }
-    .job p {
-      margin: 0.3rem 0 0.8rem;
-      font-style: italic;
+    .card p {
+      font-size: 0.95rem;
       color: #555;
     }
     ul {
       padding-left: 1.2rem;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
+
+    .card {
+  background: #fff;
+  padding: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+  transition: all 0.3s ease; /* smooth transition */
+}
+
+.card:hover {
+  box-shadow: 0px 6px 20px rgba(0, 144, 158, 0.3); /* stronger shadow with teal tint */
+  
+  transform: translateY(-5px); /* slight lift */
+}
+
+
+    /* Skills tags */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
     }
-    .grid li {
+    .tag {
       background: #e9f5f9;
-      padding: 0.8rem;
-      border-radius: 6px;
-      list-style: none;
+      color: #00909e;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
     }
 
     footer {
       text-align: center;
-      font-size: 0.85rem;
-      color: #666;
+      padding: 1.5rem;
+      background: #142850;
+      color: #ddd;
       margin-top: 2rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- Sidebar -->
-  <aside>
-    <img src="images/arun3.png" alt="Profile Picture">
+  <!-- Navbar -->
+  <header>
     <h1>Arun Neelamegam</h1>
-    <p>Data Analyst | BI Consulatnt | Pre-Sales Consulatnt</p>
     <nav>
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
@@ -133,105 +176,166 @@
       <a href="#certifications">Certifications</a>
       <a href="#contact">Contact</a>
     </nav>
-  </aside>
+  </header>
 
-  <!-- Main -->
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
+  <!-- Hero Section -->
+  <div class="hero">
+    <img src="images/arun3.png" alt="Profile Picture">
+    <h2>Data Analyst | BI Consultant </h2>
+    <p>Turning Data into Actionable Insights</p>
+  </div>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>I’m a Data Analyst with strong experience in BI, data visualization, and analytics solutions across diverse industries.
+      Certified AWS Cloud Practitioner. Skilled in Tableau, Power BI, QlikView, Python, R, SQL, and AWS — I bring both technical expertise
+      and business acumen to deliver actionable insights.</p>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <h2>Work Experience</h2>
+    <div class="card-grid">
       <div class="card">
-        <p>
-          I’m a Data Analyst with strong experience in BI, data visualization, and analytics solutions across diverse industries.
-          Certified AWS Cloud Practitioner. Skilled in Tableau, Power BI, QlikView, Python, R, SQL, and AWS — I bring both technical expertise
-          and business acumen to deliver actionable insights.
-        </p>
-      </div>
-    </section>
-
-    <section id="experience">
-      <h2>Work Experience</h2>
-
-      <div class="card job">
         <h3>Freelance Data Analyst</h3>
-        <p>Limerick, Ireland | Oct 2023 – Present</p>
+        <p><em>Freelance, Limerick, Ireland | Oct 2023 – Present</em></p>
         <ul>
           <li><strong>Limerick Strand Hotel:</strong> Built Tableau dashboards, automated order scraping with Python + Selenium, and applied ARIMA/SARIMA forecasts for inventory planning.</li>
           <li><strong>AMS – BrakesIndia:</strong> Maintained QlikView dashboards and debugged data extraction processes.</li>
         </ul>
       </div>
-
-      <div class="card job">
+      <div class="card">
         <h3>Project Lead – Data Analytics</h3>
-        <p>Indium, Chennai | Apr 2018 – Aug 2022</p>
+        <p><em>Indium, India | Apr 2018 – Aug 2022</em></p>
         <ul>
-          <li>Led projects using Power BI, Tableau, and QlikView.</li>
-          <li>Designed solutions on AWS & Azure.</li>
-          <li>Worked on designing the power query in Azure Analysis Service to stage the data for Power BI</li>
-          <li>Applied ML techniques (Market Basket Analysis, RFM, Classification) for a leading manufacturing firm in india.</li>
-          <li>Provided Pre-Sales solutioning for the propects and closed deals for Data Sciience and Data Engineering projects</li>
+          <li>Led projects using Power BI, Tableau, QlikView, and Apache Superset.</li>
+          <li>Designed solutions on AWS & Azure with CI/CD pipelines.</li>
+          <li>Applied ML techniques (Market Basket Analysis, RFM, Classification).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Project Coordinator</h3>
+        <p><em>Ur-Channel, Mississauga, Canada | May 2016 – Feb 2017</em></p>
+            <ul>
+                <li>Gathered business requirements and translated them for teams.</li>
+                <li>Managed risks/issues and tracked resolutions in CRM.</li>
+                <li>Built dashboards to monitor budgets and resources.</li>
+                <li>Maintained logs to keep projects on track.</li>
+                <li>Handled invoicing, POs, and inventory in CRM.</li>
+                <li>Updated SharePoint knowledge bases and workflows.</li>
+                <li>Coordinated logistics and delivered reports.</li>
+
         </ul>
       </div>
 
-      <!-- Add other jobs similarly -->
-    </section>
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="skill-category">
-    
-    <h3>Data Viz Tools</h3>
-    <ul class="grid">
-      <li>Tableau</li>
-      <li>Power BI</li>
-      <li>QlikView</li>
-    </ul>
-  </div>
+    <div class="card">
+        <h3>Salesforce Admin</h3>
+        <p><em>Belmar Consulting, Vancouver, Canada | Aug 2014 – Jun 2016</em></p>
+            <ul>
+                <li>Managed user accounts, roles, profiles, and security settings to ensure proper data access and compliance.</li>
+                <li>Designed and customized objects, fields, workflows, and validation rules to streamline business processes.</li>
+                <li>Developed dashboards and reports to provide actionable insights for leadership and teams.</li>
+                <li>Supported system maintenance, data imports/exports, and user training to maximize Salesforce adoption.</li>
+            </ul>
+    </div>
 
-  <div class="skill-category">
-    <h3>Programming</h3>
-    <ul class="grid">
-      <li>Python (Pandas, Numpy, Selenium)</li>
-      <li>R</li>
-      <li>Java</li>
-      
-    </ul>
-  </div>
+    <div class="card">
+        <h3>Incident Management Analyst </h3>
+        <p><em>Tata Consultancy Services, India | Oct 2006 – Jan 2010</em></p>
+            <ul>
+                <li>Handled ticket escalations and managed incident severity assessments.</li>
+                <li>Supported Nielsen’s in-house applications and documented cases in HEAT CRM.</li>
+                <li>Monitored team performance through call reviews, case quality, and resolution efficiency.</li>
+                <li>Sent server-down notifications to affected zones and coordinated communications.</li>
+                <li>Mentored associates and maintained process documentation in the knowledge base.</li>
 
-    <div class="skill-category">
-    <h3>Database</h3>
-    <ul class="grid">
-      <li>SqlServer</li>
-      <li>MySQL</li>
-      <li>PostgreSQL</li>
-      
-    </ul>
-  </div>
+            </ul>
+    </div>
 
- 
+    <div class="card">
+        <h3>Technical Support </h3>
+        <p><em>Sutherland Global Services, India  | Apr 2004 – Oct 2006</em></p>
+            <ul>
+                <li>Delivered technical support for U.S.-based QuickBooks users.</li>
+                <li>Guided customers in recording transactions (invoices, memos, reconciliations, chart of accounts).</li>
+                <li>Assisted with exporting reports to Excel for analysis and sharing.</li>
+                <li>Supported data backup and recovery in “.QBP” format.</li>
 
-    <section id="certifications">
-      <h2>Certifications</h2>
-      <ul class="grid">
-        <li>
-          <a href="images/AWS Certified Cloud Practitioner certificate.pdf" target="_blank">
-            <strong>AWS Certified Cloud Practitioner (CLF-C02)</strong>
-          </a>
-        </li>
-      </ul>
-    </section>
+            </ul>
+    </div>
 
-    <section id="contact">
-      <h2>Contact</h2>
+
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="card-grid">
       <div class="card">
-        <p>Email: <a href="mailto:arun.neelamegam2@gmail.com">arun.neelamegam2@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/arun-neelamegam/details/experience/" target="_blank">linkedin.com/in/arun-neelamegam</a></p>
-        <p>GitHub: <a href="https://github.com/yourprofile" target="_blank">github.com/yourprofile</a></p>
+        <h3>Data Viz Tools</h3>
+        <div class="tags">
+          <span class="tag">Tableau</span>
+          
+          <span class="tag">Power BI</span>
+          <span class="tag">QlikView</span>
+        </div>
       </div>
-    </section>
+      <div class="card">
+        <h3>Programming</h3>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">R</span>
+          <span class="tag">Java</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Databases</h3>
+        <div class="tags">
+          <span class="tag">SQL Server</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Cloud</h3>
+        <div class="tags">
+          <span class="tag">AWS</span>
+          <span class="tag">Azure</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-      &copy; 2025 Arun Neelamegam | All Rights Reserved
-    </footer>
-  </main>
+  <!-- Certifications -->
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="card">
+      <p>
+        <a href="images/AWS Certified Cloud Practitioner certificate.pdf" target="_blank">
+          <strong>AWS Certified Cloud Practitioner (CLF-C02)</strong>
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Email: <a href="mailto:arun.neelamegam2@gmail.com">arun.neelamegam2@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/arun-neelamegam/details/experience/" target="_blank">linkedin.com/in/arun-neelamegam</a></p>
+      <p>GitHub: <a href="https://github.com/yourprofile" target="_blank">github.com/yourprofile</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Arun Neelamegam | All Rights Reserved
+  </footer>
 
 </body>
 </html>
