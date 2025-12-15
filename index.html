@@ -94,11 +94,17 @@
     }
 
     /* Card Layout */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
+  .card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.wide-card {
+  grid-column: span 2;
+}
+
+
     .card {
       background: white;
       border-radius: 12px;
@@ -136,6 +142,27 @@
   
   transform: translateY(-10px); /* slight lift */
 }
+
+@media (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wide-card {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wide-card {
+    grid-column: span 1;
+  }
+}
+
 
 
     /* Skills tags */
@@ -203,8 +230,13 @@
         <h3>Freelance Data Analyst</h3>
         <p><em>Freelance, Limerick, Ireland | Oct 2023 – Present</em></p>
         <ul>
-          <li><strong>Limerick Strand Hotel:</strong> Built Tableau dashboards, automated order scraping with Python + Selenium, and applied ARIMA/SARIMA forecasts for inventory planning.</li>
-          <li><strong>AMS – BrakesIndia:</strong> Maintained QlikView dashboards and debugged data extraction processes.</li>
+          <li><strong>Limerick Strand Hotel:</strong> <br>Built Tableau dashboards using Tableau leveraging the scrapped data. </li>
+          <li> Automated scraping with Python + Selenium</li>
+          <li> Built forecasting reports for inventory planning </li>   
+          <li> Created Sentimental Analysis report from the publicly available customer review data</li>
+          <br>  
+                     
+          <li><strong>AMS – BrakesIndia: <br></strong> Maintained QlikView dashboards and debugged data extraction processes.</li>
         </ul>
       </div>
       <div class="card">
@@ -250,7 +282,7 @@
     </div>
 
 
-    <div class="card">
+    <div class="card wide-card">
         <h3>Technical Support </h3>
         <p><em>Sutherland Global Services, India  | Apr 2004 – Jan 2010</em></p>
             <ul>
