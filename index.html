@@ -241,6 +241,13 @@
   display: block;
 }  
 
+
+.iframe-container {
+  display: flex;
+  justify-content: center; /* horizontal centering */
+  margin: 20px 0;
+}
+
   </style>
 </head>
 <body>
@@ -295,13 +302,20 @@
         <h3>Freelance Data Analyst</h3>
         <p><em>Freelance, Limerick, Ireland | Oct 2023 – Present</em></p>
         <ul>
-          <li><strong>Limerick Strand Hotel:</strong> <br>Built Tableau dashboards using Tableau leveraging the scrapped data. </li>
+          <li><strong>Project 1: Limerick Strand Hotel:</strong> <br>Built Tableau dashboards using Tableau leveraging the scrapped data. </li>
           <li> Automated scraping with Python + Selenium</li>
           <li> Built forecasting reports for inventory planning </li>   
           <li> Created Sentimental Analysis report from the publicly available customer review data</li>
           <br>  
+
+          <li><strong>Project 2: Report Automation for Northern Trust Bank Associate :</strong> <br>
+            Developed automated workflows using Power Automate (Flows) integrated with Power BI to streamline data refreshes, alerts, and reporting processes. </li>
+          <li> Leveraged TypeScript to customize and enhance automation logic and integrations within the Power Platform ecosystem.</li>
+          <li> Enabled near real-time insights by integrating Power BI dashboards with automated data pipelines, improving reporting efficiency and decision-making. </li>   
+       
+          <br>  
                      
-          <li><strong>AMS – BrakesIndia: <br></strong> Maintained QlikView dashboards and debugged data extraction processes.</li>
+          <li><strong>Project 3: AMS – BrakesIndia: <br></strong> Maintained QlikView dashboards and debugged data extraction processes.</li>
         </ul>
       </div>
       <div class="card">
@@ -373,6 +387,13 @@
   <!-- Skills -->
   <section id="skills">
     <h2>Skills</h2>
+
+    <div class="iframe-container">
+              <iframe
+      src="https://app.powerbi.com/view?r=eyJrIjoiMmJlNWViM2ItZWViYS00MjJjLWE0NGYtZjU1NGJhMzIyY2I1IiwidCI6IjczMjAwNGQzLWMyYTEtNDNmZS04NWFjLWVjZWZhMzc1NWQyYiIsImMiOjh9&pageName=61a17117739ef523cdcb"
+      style="width:40%; height:300px; border:none;">
+    </iframe>
+    </div>
     <div class="card-grid">
       <div class="card">
         <h3>Data Viz Tools</h3>
@@ -396,6 +417,9 @@
           <span class="tag">Java <br>(Eclipse) </span>
         </div>
       </div>
+
+
+
       <div class="card">
         <h3>Databases</h3>
         <div class="tags">
@@ -418,6 +442,7 @@
   <section id="certifications">
     <h2>Certifications</h2>
     <div class="card">
+     
       <span class="tag">
       
         <a href="images/AWS Certified Cloud Practitioner certificate.pdf" target="_blank">
@@ -425,7 +450,9 @@
         </a>
       
       </span>
+      <span class="tag">Salesforce Developer</span>
     </div>
+    
   </section>
 
 
@@ -436,11 +463,18 @@
 
   <div class="card" style="height:550px;">
     <h3> Hospitality Dashboard  </h3>
+   
     <iframe
       src="https://app.powerbi.com/view?r=eyJrIjoiZjllZWVjMGEtODRiOC00MjcxLWFkMDQtNDBjMzNlMTIwOGNiIiwidCI6IjczMjAwNGQzLWMyYTEtNDNmZS04NWFjLWVjZWZhMzc1NWQyYiIsImMiOjh9"
       style="width:100%; height:100%; border:none;">
     </iframe>
+  
   </div>
+<div class="tags">
+          <span class="tag">This Power BI dashboard provides leadership with a unified, real-time view of hospitality performance across properties and markets. By tracking core commercial metrics such as Revenue, RevPAR, ADR, and Occupancy %, the dashboard enables rapid identification of revenue gaps, demand trends, and underperforming properties. Interactive analysis by room category, city, and booking platform supports data-driven pricing, inventory optimization, and channel strategy decisions. The solution empowers executives to improve revenue realization, enhance operational efficiency, and drive measurable improvements in overall portfolio performance.</span>
+  </div>
+
+  
 </section>
 
 <!-- PBI2-->
@@ -453,6 +487,10 @@
       src="https://app.powerbi.com/view?r=eyJrIjoiYzA2NDE0ZmUtYTJjNS00MmY3LWIwMTYtYjkwZTM4MTQ1ZWQ0IiwidCI6IjczMjAwNGQzLWMyYTEtNDNmZS04NWFjLWVjZWZhMzc1NWQyYiIsImMiOjh9"
       style="width:100%; height:100%; border:none;">
     </iframe>
+  </div>
+
+  <div class="tags">
+          <span class="tag">This Power BI dashboard is built using a star-schema data model and leverages advanced DAX measures to evaluate sales performance against targets. Core calculations include Total Sales, YTD Sales, Variance, Variance %, and Target Achievement using functions such as CALCULATE, DIVIDE, DATESYTD, ALL, and context transition techniques. Week-over-week and month-level performance comparisons are enabled through date intelligence functions. The dashboard incorporates conditional formatting, dynamic KPIs, and row-level insights using table visuals with sparklines to analyze individual salesperson trends. Interactive slicers and cross-filtering allow users to drill down by team, salesperson, and time period while maintaining optimal performance through efficient DAX and proper use of dimension tables</span>
   </div>
 </section>
 </section>
