@@ -3,521 +3,1342 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arun Neelamegam - Data Analyst</title>
+  <title>Arun Neelamegam — Data Analyst & BI Consultant</title>
+
+  <!-- ✅ SEO meta tags -->
+  <meta name="description" content="Arun Neelamegam — AWS Certified Data Analyst & BI Consultant with 10+ years experience across Power BI, Tableau, SQL, Python and cloud platforms. Open to work globally.">
+  <meta name="author" content="Arun Neelamegam">
+  <meta property="og:title" content="Arun Neelamegam — Data Analyst & BI Consultant">
+  <meta property="og:description" content="Turning Raw Data into Actionable Intelligence. AWS Certified. 10+ years. 4 countries.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ✅ Preconnect for faster font load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- ✅ Added display=swap to prevent invisible text during font load -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --navy:       #0a0f1e;
+      --navy-mid:   #111827;
+      --navy-light: #1a2440;
+      --gold:       #c9a84c;
+      --gold-light: #e8c96a;
+      --teal:       #00bcd4;
+      --white:      #f8f9fa;
+      --muted:      #8899aa;
+      --card-bg:    #111827;
+      --card-border: rgba(201,168,76,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f5f7fa;
-      color: #333;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
     }
 
-    /* Navbar */
-    /* Navbar */
-    header {
-      background: #142850;
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    /* ✅ Only hide system cursor on true pointer devices */
+    @media (pointer: fine) {
+      body { cursor: none; }
     }
-    header h1 {
-      font-size: 1.4rem;
-      margin: 0;
-    }
-    nav a {
-      color: white;
+
+    /* ✅ Accessibility: skip link */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 0.5rem 1rem;
+      border-radius: 0 0 4px 4px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      z-index: 9999;
       text-decoration: none;
-      margin-left: 1rem;
-      font-weight: 500;
+      transition: top 0.2s;
     }
-    nav a:hover {
-      color: #fdee50;
-    }
+    .skip-link:focus { top: 0; }
 
-    /* Hero */
-    .hero {
-      text-align: center;
-      padding: 3rem 1rem 2rem;
-      background: linear-gradient(120deg, #00909e, #142850);
-      color: white;
+    /* ─── CURSOR (pointer devices only) ─── */
+    .cursor, .cursor-ring {
+      display: none;
+      pointer-events: none;
+      position: fixed;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
     }
-    .hero img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 4px solid white;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 1.2s ease forwards;
-    }
-    .hero h2, .hero p {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 1s ease forwards;
-    }
-    .hero h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      animation-delay: 0.3s;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      animation-delay: 0.6s;
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
+    @media (pointer: fine) {
+      .cursor {
+        display: block;
+        width: 10px; height: 10px;
+        background: var(--gold);
+        border-radius: 50%;
+        /* ✅ GPU-accelerate cursor for smooth movement */
+        will-change: left, top;
+        transition: transform 0.1s ease;
+      }
+      .cursor-ring {
+        display: block;
+        width: 36px; height: 36px;
+        border: 1.5px solid rgba(201,168,76,0.5);
+        border-radius: 50%;
+        will-change: left, top;
+        transition: transform 0.25s ease, border-color 0.2s ease;
+        z-index: 9998;
       }
     }
 
-    /* Sections */
-    section {
-      padding: 1rem 1rem;
-      max-width: 1000px;
-      margin: auto;
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 1;
     }
-    h2 {
+
+    /* ─── NAVIGATION ─── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(10,15,30,0.85);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+      transition: padding 0.3s ease;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .logo span { color: var(--white); font-style: italic; }
+
+    /* Desktop nav */
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    nav a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+    nav a:hover, nav a:focus { color: var(--gold); }
+    nav a:hover::after, nav a:focus::after { width: 100%; }
+
+    /* ✅ Dropdown — keyboard + hover accessible */
+    .nav-dropdown { position: relative; }
+    .dropdown-menu {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--navy-light);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      min-width: 240px;
+      padding: 0.5rem 0;
+      z-index: 200;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu {
+      visibility: visible;
+      opacity: 1;
+    }
+    .dropdown-menu a {
+      display: block;
+      padding: 0.7rem 1.2rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
+    }
+    .dropdown-menu a:hover, .dropdown-menu a:focus {
+      background: rgba(201,168,76,0.08);
+      color: var(--gold);
+    }
+    .dropdown-menu a::after { display: none; }
+
+    /* ✅ Mobile hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 200;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,15,30,0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .mobile-nav a:hover { color: var(--gold); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 8rem 3rem 4rem;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 50%, rgba(0,188,212,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 80% 30%, rgba(201,168,76,0.07) 0%, transparent 55%),
+        radial-gradient(ellipse 80% 40% at 50% 100%, rgba(10,15,30,0.9) 0%, transparent 80%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+    }
+    .hero-inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 5rem;
+      max-width: 1100px;
+      width: 100%;
+      z-index: 2;
+    }
+    .hero-photo-wrap {
+      flex-shrink: 0;
+      position: relative;
+    }
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, var(--gold), var(--teal), var(--gold));
+      /* ✅ GPU-accelerate the spin */
+      will-change: transform;
+      animation: spin 6s linear infinite;
+    }
+    .hero-photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      background: var(--navy);
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .hero-photo {
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      position: relative;
+      z-index: 1;
+      display: block;
+      /* ✅ Hero image loads eagerly (LCP element) */
+      loading: eager;
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: 5px; right: -10px;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      padding: 0.35rem 0.7rem;
+      border-radius: 20px;
+      z-index: 2;
+      white-space: nowrap;
+    }
+    .hero-text { flex: 1; }
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--teal);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.4s forwards;
+    }
+    .hero-name em { font-style: italic; color: var(--gold); }
+    .hero-title {
+      font-size: 1.1rem;
+      color: var(--muted);
       margin-bottom: 1.5rem;
-      color: #c49a26;
-       
-      border-left: 5px solid #00a8cc;
-      padding-left: 0.6rem;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.6s forwards;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: rgba(248,249,250,0.75);
+      line-height: 1.8;
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.8s forwards;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1s forwards;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      letter-spacing: 0.02em;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.3);
+    }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    }
+    .btn-ghost:hover {
+      background: rgba(201,168,76,0.08);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(201,168,76,0.12);
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.2s forwards;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* Card Layout */
-  .card-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-}
+    /* ─── SCROLL INDICATOR ─── */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 0.6rem; left: 60%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 1.8s forwards;
+    }
+    .scroll-indicator span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: lightyellow;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 2px; height: 50px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50%       { opacity: 1;   transform: scaleY(1.2); }
+    }
 
-.wide-card {
-  grid-column: span 2;
-}
+    /* ─── MAIN ─── */
+    main { position: relative; z-index: 2; }
 
+    /* ─── SECTION BASE ─── */
+    .section {
+      padding: 6rem 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-header { margin-bottom: 3.5rem; }
+    .section-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--teal);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-tag::after {
+      content: '';
+      flex: 1;
+      max-width: 80px;
+      height: 1px;
+      background: var(--teal);
+      opacity: 0.4;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .section-title em { color: var(--gold); font-style: italic; }
 
-    .card {
-      background: white;
+    /* ─── DIVIDER ─── */
+    .divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.2), transparent);
+    }
+
+    /* ─── ABOUT ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-text p {
+      color: rgba(248,249,250,0.75);
+      line-height: 1.9;
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(0,188,212,0.05));
+      border: 1px solid var(--card-border);
+      border-left: 3px solid var(--gold);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .highlight-box p {
+      color: rgba(201,168,76,0.9) !important;
+      font-size: 0.95rem !important;
+      margin: 0 !important;
+    }
+    .about-certs { display: flex; flex-direction: column; gap: 1rem; }
+    .cert-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .cert-card:hover {
+      border-color: var(--gold);
+      transform: translateX(6px);
+      background: rgba(201,168,76,0.05);
+    }
+    .cert-icon {
+      width: 85px; height: 48px;
+      border-radius: 8px;
+      object-fit: contain;
+      background: rgba(255,255,255,0.05);
+      flex-shrink: 0;
+    }
+    .cert-info h4 { font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
+    .cert-info p  { font-size: 0.78rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
+    .cert-arrow {
+      margin-left: auto;
+      color: var(--gold);
+      font-size: 1.1rem;
+      opacity: 0.6;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .cert-card:hover .cert-arrow { opacity: 1; transform: translateX(4px); }
+
+    /* ─── EXPERIENCE ─── */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold), var(--teal), transparent);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+    }
+    .timeline-item:last-child { border-bottom: none; margin-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      left: -2.5rem; top: 0.3rem;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 4px rgba(201,168,76,0.15);
+    }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .exp-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); }
+    .exp-period {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--teal);
+      background: rgba(0,188,212,0.08);
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      border: 1px solid rgba(0,188,212,0.2);
+      white-space: nowrap;
+    }
+    .exp-company { font-size: 0.88rem; color: var(--gold); margin-bottom: 1rem; font-weight: 500; }
+    .exp-body { color: rgba(248,249,250,0.7); font-size: 0.9rem; line-height: 1.8; }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .exp-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--teal);
+      background: rgba(0,188,212,0.06);
+      border: 1px solid rgba(0,188,212,0.18);
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+    }
+
+    /* ─── SKILLS ─── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
       border-radius: 12px;
       padding: 1.5rem;
-      box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--teal));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .skill-card:hover::before { transform: scaleX(1); }
+    .skill-card:hover {
+      border-color: rgba(201,168,76,0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    }
+    .skill-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .skill-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--white); margin-bottom: 1rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .skill-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      background: rgba(201,168,76,0.08);
+      color: rgba(201,168,76,0.8);
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
     }
 
-
-    .card:hover {
-      transform: translateY(-5px);
+    /* ─── DASHBOARDS ─── */
+    .pbi-section { margin-bottom: 4rem; }
+    .pbi-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
     }
-    .card h3 {
-      margin-top: 0;
-      color: #00909e;
+    .pbi-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; }
+    .pbi-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; max-width: 780px; margin-bottom: 1.5rem; }
+
+    /* ✅ Lazy-load iframe wrapper with click-to-load */
+    .iframe-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      height: 550px;
+      position: relative;
+      background: var(--card-bg);
     }
-    .card p {
-      font-size: 0.95rem;
-      color: #555;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-
-
-    .card {
-  background: #fff;
-  padding: 1.2rem;
-  border-radius: 10px;
-  box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
-  margin-bottom: 1rem;
-  transition: all 0.3s ease; /* smooth transition */
-}
-
-.card:hover {
-  box-shadow: 0px 6px 20px rgba(246, 197, 22, 0.997); /* stronger shadow with teal tint */
-  
-  transform: translateY(-10px); /* slight lift */
-}
-
-@media (max-width: 1024px) {
-  .card-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .wide-card {
-    grid-column: span 2;
-  }
-}
-
-@media (max-width: 640px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .wide-card {
-    grid-column: span 1;
-  }
-}
-
-
-
-    /* Skills tags */
-    .tags {
+    .iframe-placeholder {
+      position: absolute; inset: 0;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 0.8rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
-    .tag {
-      background: #e9f5f9;
-      color: #00909e;
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
+    .iframe-placeholder:hover { background: rgba(201,168,76,0.04); }
+    .iframe-placeholder p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.05em;
+    }
+    .iframe-placeholder .load-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 600;
       font-size: 0.85rem;
-      font-weight: 500;
+      padding: 0.7rem 1.4rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
     }
+    .iframe-placeholder .load-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .iframe-wrap iframe {
+      width: 100%; height: 100%;
+      border: none;
+      display: none; /* shown only after user clicks load */
+    }
+    .iframe-wrap.loaded .iframe-placeholder { display: none; }
+    .iframe-wrap.loaded iframe { display: block; }
 
+    /* ─── MAP ─── */
+    .map-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      height: 560px;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+
+    /* ─── CONTACT ─── */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .contact-text h3 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--white); margin-bottom: 1rem; }
+    .contact-text h3 em { color: var(--gold); font-style: italic; }
+    .contact-text p { color: var(--muted); line-height: 1.8; margin-bottom: 2rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      text-decoration: none;
+      color: var(--white);
+      transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+    }
+    .contact-link:hover {
+      border-color: var(--gold);
+      transform: translateX(6px);
+      background: rgba(201,168,76,0.05);
+    }
+    .contact-link-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .contact-link-info small {
+      display: block;
+      font-size: 0.68rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--teal);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+    .contact-link-info strong { font-size: 0.9rem; color: var(--white); font-weight: 500; }
+
+    /* ─── FOOTER ─── */
     footer {
-      text-align: center;
-      padding: 1.5rem;
-      background: #142850;
-      color: #ddd;
-      margin-top: 2rem;
-      font-size: 0.9rem;
+      border-top: 1px solid rgba(201,168,76,0.12);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    footer strong { color: var(--gold); font-style: italic; font-family: 'Playfair Display', serif; }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ✅ Respect reduced-motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+      .hero-photo-wrap::before { animation: none; }
+      .scroll-line { animation: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
     }
 
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero-inner { flex-direction: column; text-align: center; gap: 2.5rem; }
+      .hero-desc { max-width: 100%; }
+      .hero-actions { justify-content: center; }
+      .hero-stats { justify-content: center; gap: 2rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      header { padding: 1rem 1.5rem; }
+      .section { padding: 4rem 1.5rem; }
+      nav { display: none; }
+      .hamburger { display: flex; }
+    }
 
- 
-   nav {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-/* Dropdown container */
-.dropdown {
-  position: relative;
-}
-
-/* Main link */
-.dropbtn {
-  cursor: pointer;
-}
-
-/* Hidden submenu */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #ffffff;
-  min-width: 160px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  z-index: 1000;
-}
-
-/* Submenu links */
-.dropdown-content a {
-  display: block;
-  padding: 10px 14px;
-  color: #080808;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.dropdown-content a:hover {
-  background-color: #f2f2f2;
-}
-
-/* Show submenu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}  
-
-
-.iframe-container {
-  display: flex;
-  justify-content: center; /* horizontal centering */
-  margin: 20px 0;
-}
-
+    @media (max-width: 640px) {
+      .hero { padding: 7rem 1.5rem 3rem; }
+      .iframe-wrap { height: 380px; }
+      .map-wrap { height: 380px; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
   </style>
 </head>
 <body>
 
+<!-- ✅ Accessibility: skip to content -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
- 
+<!-- Custom Cursor (pointer devices only) -->
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
-  <!-- Navbar -->
-  <header>
-    <h1>Arun Neelamegam</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#certifications">Certifications</a>
-     
-      <!-- Dropdown -->
-    <div class="dropdown">
-      <a href="#PBI" class="dropbtn">Live Dashboards ▾</a>
-      <div class="dropdown-content">
-        <a href="#PBI1">Power BI  - Hospitality KPI Dashboard</a>
-        <a href="#PBI2">Power BI  - Sales KPI Dashboard</a>
+<!-- ✅ Mobile Nav Overlay -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+  <a href="#about"      onclick="closeMobileNav()">About</a>
+  <a href="#experience" onclick="closeMobileNav()">Experience</a>
+  <a href="#skills"     onclick="closeMobileNav()">Skills</a>
+  <a href="#dashboards" onclick="closeMobileNav()">Dashboards</a>
+  <a href="#r-maps"     onclick="closeMobileNav()">Countries</a>
+  <a href="#contact"    onclick="closeMobileNav()">Contact</a>
+</nav>
+
+<!-- ─── HEADER ─── -->
+<header role="banner">
+  <a href="#" class="logo" aria-label="Arun Neelamegam — Home">Arun <span>Neelamegam</span></a>
+
+  <nav aria-label="Primary navigation">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <div class="nav-dropdown">
+      <a href="#dashboards" aria-haspopup="true" aria-expanded="false">Work ▾</a>
+      <div class="dropdown-menu" role="menu">
+        <a href="#pbi-hospitality" role="menuitem">Hospitality Dashboard</a>
+        <a href="#pbi-sales"       role="menuitem">Sales Dashboard</a>
+        <a href="#r-maps"          role="menuitem">Countries Worked</a>
       </div>
     </div>
-      
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <!-- Hero Section -->
-  <div class="hero">
-    <img src="images/arun3.png" alt="Profile Picture">
-    <h2>Data Analyst | BI Consultant </h2>
-    <p>Turning Data into Actionable Insights</p>
-  </div>
+  <!-- ✅ Hamburger button for mobile -->
+  <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
 
-  <!-- About -->
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-      <p>I’m a Data Analyst with strong experience in BI, data visualization, and analytics solutions across diverse industries.
-      Certified AWS Cloud Practitioner. Skilled in Tableau, Power BI, QlikView, Python, R, SQL, and AWS — I bring both technical expertise
-      and business acumen to deliver actionable insights.</p>
+<!-- ─── HERO ─── -->
+<section class="hero" aria-label="Introduction">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="hero-photo-wrap">
+      <!-- ✅ eager loading + async decode for LCP image -->
+      <img src="images/arun3.png"
+           alt="Arun Neelamegam — Data Analyst and BI Consultant"
+           class="hero-photo"
+           loading="eager"
+           decoding="async"
+           width="200" height="200">
+      <div class="hero-badge" aria-label="Status: Open to Work">✦ Open to Work</div>
     </div>
-  </section>
 
-  <!-- Experience -->
-  <section id="experience">
-    <h2>Work Experience</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Freelance Data Analyst</h3>
-        <p><em>Freelance, Limerick, Ireland | Oct 2023 – Present</em></p>
-        <ul>
-          <li><strong>Project 1: Limerick Strand Hotel:</strong> <br>Built Tableau dashboards using Tableau leveraging the scrapped data. </li>
-          <li> Automated scraping with Python + Selenium</li>
-          <li> Built forecasting reports for inventory planning </li>   
-          <li> Created Sentimental Analysis report from the publicly available customer review data</li>
-          <br>  
-
-          <li><strong>Project 2: Report Automation for Northern Trust Bank Associate :</strong> <br>
-            Developed automated workflows using Power Automate (Flows) integrated with Power BI to streamline data refreshes, alerts, and reporting processes. </li>
-          <li> Leveraged TypeScript to customize and enhance automation logic and integrations within the Power Platform ecosystem.</li>
-          <li> Enabled near real-time insights by integrating Power BI dashboards with automated data pipelines, improving reporting efficiency and decision-making. </li>   
-       
-          <br>  
-                     
-          <li><strong>Project 3: AMS – BrakesIndia: <br></strong> Maintained QlikView dashboards and debugged data extraction processes.</li>
-        </ul>
+    <div class="hero-text">
+      <p class="hero-eyebrow">✦ Data Analyst & BI Consultant</p>
+      <h1 class="hero-name">Arun<br><em>Neelamegam</em></h1>
+      <p class="hero-title">Turning Raw Data into Actionable Intelligence</p>
+      <p class="hero-desc">
+        Certified AWS Cloud Practitioner with deep expertise in BI, data visualization, and analytics
+        solutions across diverse industries. I bridge technical complexity with business strategy.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get in Touch →</a>
+        <a href="#experience" class="btn-ghost">View My Work</a>
       </div>
-      <div class="card">
-        <h3>Project Lead – Data Analytics</h3>
-        <p><em>Indium, India | Apr 2018 – Aug 2022</em></p>
-        <ul>
-          <li>Led projects using Power BI, Tableau, QlikView, and Apache Superset.</li>
-          <li>Consumed Data for BI Tools from cloud services Dynamo, Redshit, Azure Analysis Service, S3 Buckets. </li>
-          <li>Applied ML techniques (Market Basket Analysis, RFM, Classification).</li>
-          <li>Established data validation checks while preparing data for staging for the  analysis layer</li>
-          <li>Defined and enforced data quality metrics (DQ rules, thresholds, SLAs) </li>
-          <li>Created Data Models</li>
-          <li> Data transformation using DAX and Power queries in Power BI</li>
-          <li>Collaborated with data engineers, analysts, and business stakeholders </li>
-          <li>Write sql queries to create the required data for the BI tools  </li>
-          <li>Provided Pre-Sales solutioning in the client calls for Data science and Data Engineering projects  </li>
-          <li>Wrote success stories and case studies content  </li>
-
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Project Coordinator</h3>
-        <p><em>Ur-Channel, Mississauga, Canada | May 2016 – Feb 2017</em></p>
-            <ul>
-                <li>Gathered business requirements and translated them for teams.</li>
-                <li>Managed risks/issues and tracked resolutions in CRM.</li>
-                <li>Built dashboards to monitor budgets and resources.</li>
-                <li>Maintained logs to keep projects on track.</li>
-                <li>Handled invoicing, POs, and inventory in CRM.</li>
-                <li>Updated SharePoint knowledge bases and workflows.</li>
-                <li>Coordinated logistics and delivered reports.</li>
-
-        </ul>
-      </div>
-
-    <div class="card">
-        <h3>Salesforce Admin</h3>
-        <p><em>Belmar Consulting, Vancouver, Canada | Aug 2014 – Jun 2016</em></p>
-            <ul>
-                <li>Managed user accounts, roles, profiles, and security settings to ensure proper data access and compliance.</li>
-                <li>Designed and customized objects, fields, workflows, and validation rules to streamline business processes.</li>
-                <li>Developed dashboards and reports to provide actionable insights for leadership and teams.</li>
-                <li>Supported system maintenance, data imports/exports, and user training to maximize Salesforce adoption.</li>
-            </ul>
-    </div>
-
-
-    <div class="card wide-card">
-        <h3>Incident Management Support </h3>
-        <p><em>Sutherland Global Services, India  | Apr 2004 – Jan 2010</em></p>
-            <ul>
-                <li>Handled ticket escalations and managed incident severity assessments.</li>
-                <li>Supported Nielsen’s in-house applications and documented cases in HEAT CRM.</li>
-                <li>Monitored team performance through call reviews, case quality, and resolution efficiency.</li>
-                <li>Sent server-down notifications to affected zones and coordinated communications.</li>
-                <li>Mentored associates and maintained process documentation in the knowledge base.</li>
-                <li>Delivered technical support for U.S.-based QuickBooks users.</li>
-                <li>Guided customers in recording transactions (invoices, memos, reconciliations, chart of accounts).</li>
-                <li>Assisted with exporting reports to Excel for analysis and sharing.</li>
-                <li>Supported data backup and recovery in “.QBP” format.</li>
-
-            </ul>
-    </div>
-
-
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills">
-    <h2>Skills</h2>
-
- 
-    <div class="card-grid">
-      <div class="card">
-        <h3>Data Viz Tools</h3>
-        <div class="tags">
-          <span class="tag">Tableau</span>
-          
-          <span class="tag">
-            <a href="https://app.powerbi.com/view?r=eyJrIjoiMmJlNWViM2ItZWViYS00MjJjLWE0NGYtZjU1NGJhMzIyY2I1IiwidCI6IjczMjAwNGQzLWMyYTEtNDNmZS04NWFjLWVjZWZhMzc1NWQyYiIsImMiOjh9&pageName=61a17117739ef523cdcb" target="_blank">
-            Power BI
-          </a>
-          </span>
-
-          <span class="tag">QlikView</span>
+      <div class="hero-stats" aria-label="Career highlights">
+        <div class="stat">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Years Experience</div>
         </div>
-      </div>
-      <div class="card">
-        <h3>Programming and IDE </h3>
-        <div class="tags">
-          <span class="tag">Python <br> (VS code, Pycharm, Jupyter)</span>
-          <span class="tag">R <br>(Rstudio) </span>
-          <span class="tag">Java <br>(Eclipse) </span>
+        <div class="stat">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Countries</div>
         </div>
-      </div>
-
-
-
-      <div class="card">
-        <h3>Databases</h3>
-        <div class="tags">
-          <span class="tag">SQL Server</span>
-          <span class="tag">MySQL</span>
-          <span class="tag">PostgreSQL</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Cloud</h3>
-        <div class="tags">
-          <span class="tag">AWS</span>
-          <span class="tag">Azure</span>
+        <div class="stat">
+          <div class="stat-num">5+</div>
+          <div class="stat-label">BI Platforms</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Certifications -->
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <div class="card">
-     
-      <span class="tag">
-      
-        <a href="images/AWS Certified Cloud Practitioner certificate.pdf" target="_blank">
-          <strong>AWS Certified Cloud Practitioner (CLF-C02)</strong>
-        </a>
-      
-      </span>
-      <span class="tag">Salesforce Developer</span>
+  <div class="scroll-indicator" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<main id="main-content">
+
+<!-- ─── ABOUT ─── -->
+<div class="divider" role="separator"></div>
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="section-header reveal">
+    <div class="section-tag">01 — About Me</div>
+    <h2 class="section-title" id="about-title">The Analyst Behind the <em>Numbers</em></h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>
+        I'm a Data Analyst and BI Consultant with a track record of transforming complex datasets into clear,
+        compelling stories that drive decisions. From hospitality analytics in Ireland to investment banking
+        dashboards in India, I've delivered solutions across continents.
+      </p>
+      <p>
+        My toolkit spans Tableau, Power BI, QlikView, Python, R, SQL, and AWS — pairing technical depth
+        with the business acumen to understand what a dashboard truly needs to achieve.
+      </p>
+      <div class="highlight-box">
+        <p>
+          "I don't just build dashboards — I architect insight systems that make organizations smarter, faster,
+          and more competitive."
+        </p>
+      </div>
     </div>
-    
-  </section>
 
-
-<section id="PBI">
-<!-- PBI1-->
-<section id="PBI1">
-  <h2>Power BI Dashboard 1 </h2>
-
-  <div class="card" style="height:550px;">
-    <h3> Hospitality Dashboard  </h3>
-   
-    <iframe
-      src="https://app.powerbi.com/view?r=eyJrIjoiZjllZWVjMGEtODRiOC00MjcxLWFkMDQtNDBjMzNlMTIwOGNiIiwidCI6IjczMjAwNGQzLWMyYTEtNDNmZS04NWFjLWVjZWZhMzc1NWQyYiIsImMiOjh9"
-      style="width:100%; height:100%; border:none;">
-    </iframe>
-  
-  </div>
-<div class="tags">
-          <span class="tag">This Power BI dashboard provides leadership with a unified, real-time view of hospitality performance across properties and markets. By tracking core commercial metrics such as Revenue, RevPAR, ADR, and Occupancy %, the dashboard enables rapid identification of revenue gaps, demand trends, and underperforming properties. Interactive analysis by room category, city, and booking platform supports data-driven pricing, inventory optimization, and channel strategy decisions. The solution empowers executives to improve revenue realization, enhance operational efficiency, and drive measurable improvements in overall portfolio performance.</span>
-  </div>
-
-  
-</section>
-
-<!-- PBI2-->
-<section id="PBI2">
-  <h2>Power BI Dashboard 2 </h2>
-
-  <div class="card" style="height:550px;">
-    <h3> Sales Dashboard  </h3>
-    <iframe
-      src="https://app.powerbi.com/view?r=eyJrIjoiYzA2NDE0ZmUtYTJjNS00MmY3LWIwMTYtYjkwZTM4MTQ1ZWQ0IiwidCI6IjczMjAwNGQzLWMyYTEtNDNmZS04NWFjLWVjZWZhMzc1NWQyYiIsImMiOjh9"
-      style="width:100%; height:100%; border:none;">
-    </iframe>
-  </div>
-
-  <div class="tags">
-          <span class="tag">This Power BI dashboard is built using a star-schema data model and leverages advanced DAX measures to evaluate sales performance against targets. Core calculations include Total Sales, YTD Sales, Variance, Variance %, and Target Achievement using functions such as CALCULATE, DIVIDE, DATESYTD, ALL, and context transition techniques. Week-over-week and month-level performance comparisons are enabled through date intelligence functions. The dashboard incorporates conditional formatting, dynamic KPIs, and row-level insights using table visuals with sparklines to analyze individual salesperson trends. Interactive slicers and cross-filtering allow users to drill down by team, salesperson, and time period while maintaining optimal performance through efficient DAX and proper use of dimension tables</span>
-  </div>
-</section>
-</section>
-  
-<!-- R Maps -->
-<section id="r-maps">
-  <h2>Countries Worked</h2>
-
-  <div class="card" style="height:550px;">
-    <iframe
-      src="Pages/map_with_country_highlights_and_hover_images1.html"
-      style="width:100%; height:100%; border:none;">
-    </iframe>
-  </div>
-</section>
-
-  
-
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-      <p>Email: <a href="mailto:arun.neelamegam2@gmail.com">arun.neelamegam2@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/arun-neelamegam/details/experience/" target="_blank">linkedin.com/in/arun-neelamegam</a></p>
-      <p>GitHub: <a href="https://github.com/yourprofile" target="_blank">https://github.com/Arun-Neelamegam</a></p>
+    <div class="about-certs reveal">
+      <!-- ✅ Added rel="noopener noreferrer" to all external/blank links -->
+      <a href="images/AWS Certified Cloud Practitioner certificate.pdf" target="_blank" rel="noopener noreferrer" class="cert-card">
+        <img src="images/Aws_logo.png" alt="AWS logo" class="cert-icon" loading="lazy" decoding="async">
+        <div class="cert-info">
+          <h4>AWS Certified Cloud Practitioner</h4>
+          <p>CLF-C02 · Amazon Web Services</p>
+        </div>
+        <span class="cert-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="images/Salesforce_Certified_Force.com_Developer.pdf" target="_blank" rel="noopener noreferrer" class="cert-card">
+        <img src="images/Salesforce_logo.png" alt="Salesforce logo" class="cert-icon" loading="lazy" decoding="async">
+        <div class="cert-info">
+          <h4>Salesforce Certified Developer</h4>
+          <p>Force.com Platform Developer</p>
+        </div>
+        <span class="cert-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="images/CertificateOfCompletion_R Programming in Data Science High Volume Data.pdf" target="_blank" rel="noopener noreferrer" class="cert-card">
+        <div class="cert-icon" style="display:flex;align-items:center;justify-content:center;font-size:1.5rem;" aria-hidden="true">📊</div>
+        <div class="cert-info">
+          <h4>R Programming in Data Science</h4>
+          <p>High Volume Data · LinkedIn Learning</p>
+        </div>
+        <span class="cert-arrow" aria-hidden="true">→</span>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Arun Neelamegam | All Rights Reserved
-  </footer>
+<!-- ─── EXPERIENCE ─── -->
+<div class="divider" role="separator"></div>
+<section class="section" id="experience" aria-labelledby="exp-title">
+  <div class="section-header reveal">
+    <div class="section-tag">02 — Experience</div>
+    <h2 class="section-title" id="exp-title">A Career Built on <em>Impact</em></h2>
+  </div>
 
+  <div class="timeline" role="list">
+
+    <div class="timeline-item reveal" role="listitem">
+      <div class="timeline-dot" aria-hidden="true"></div>
+      <div class="exp-header">
+        <div class="exp-title">Freelance Data Analyst</div>
+        <span class="exp-period">Oct 2023 – Jan 2026</span>
+      </div>
+      <div class="exp-company">Independent · Limerick, Ireland</div>
+      <div class="exp-body">
+        <p><strong style="color:rgba(201,168,76,0.8);">Limerick Strand Hotel:</strong> Built Tableau dashboards from scraped data, automated data collection using Python + Selenium, and created forecasting reports for inventory planning alongside sentiment analysis from customer reviews.</p>
+        <p style="margin-top:0.8rem;"><strong style="color:rgba(201,168,76,0.8);">Northern Trust Bank (Associate):</strong> Developed Power Automate workflows integrated with Power BI for near real-time insights; customized automation logic with TypeScript within the Power Platform ecosystem.</p>
+        <p style="margin-top:0.8rem;"><strong style="color:rgba(201,168,76,0.8);">AMS – Brakes India:</strong> Maintained QlikView dashboards and debugged complex data extraction processes.</p>
+      </div>
+      <div class="exp-tags" aria-label="Technologies used">
+        <span class="exp-tag">Tableau</span><span class="exp-tag">Power BI</span>
+        <span class="exp-tag">Python</span><span class="exp-tag">Selenium</span>
+        <span class="exp-tag">Power Automate</span><span class="exp-tag">TypeScript</span>
+        <span class="exp-tag">QlikView</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal" role="listitem">
+      <div class="timeline-dot" aria-hidden="true"></div>
+      <div class="exp-header">
+        <div class="exp-title">Project Lead – Data Analytics</div>
+        <span class="exp-period">Apr 2018 – Aug 2022</span>
+      </div>
+      <div class="exp-company">Indium Software · India</div>
+      <div class="exp-body">
+        Led multiple high-impact BI projects across Power BI, Tableau, QlikView, and Apache Superset. Consumed data from AWS (Dynamo, Redshift, S3) and Azure Analysis Services. Applied ML techniques including Market Basket Analysis, RFM modelling, and Classification. Defined and enforced data quality metrics, built data models, drove DAX/Power Query transformations, and provided pre-sales solutioning on data science engagements.
+      </div>
+      <div class="exp-tags" aria-label="Technologies used">
+        <span class="exp-tag">Power BI</span><span class="exp-tag">DAX</span>
+        <span class="exp-tag">AWS Redshift</span><span class="exp-tag">Azure</span>
+        <span class="exp-tag">SQL</span><span class="exp-tag">Machine Learning</span>
+        <span class="exp-tag">Apache Superset</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal" role="listitem">
+      <div class="timeline-dot" aria-hidden="true"></div>
+      <div class="exp-header">
+        <div class="exp-title">Project Coordinator</div>
+        <span class="exp-period">May 2016 – Feb 2017</span>
+      </div>
+      <div class="exp-company">Ur-Channel · Mississauga, Canada</div>
+      <div class="exp-body">
+        Gathered and translated business requirements, managed risks, tracked resolutions in CRM, and built dashboards to monitor budgets and resources. Coordinated SharePoint knowledge bases and delivered stakeholder reports.
+      </div>
+      <div class="exp-tags" aria-label="Technologies used">
+        <span class="exp-tag">CRM</span><span class="exp-tag">SharePoint</span>
+        <span class="exp-tag">Dashboard Reporting</span><span class="exp-tag">Project Management</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal" role="listitem">
+      <div class="timeline-dot" aria-hidden="true"></div>
+      <div class="exp-header">
+        <div class="exp-title">Salesforce Administrator</div>
+        <span class="exp-period">Aug 2014 – Jun 2016</span>
+      </div>
+      <div class="exp-company">Belmar Consulting · Vancouver, Canada</div>
+      <div class="exp-body">
+        Managed user accounts, roles, profiles, and security settings. Designed custom objects, workflows, and validation rules to streamline business processes. Developed dashboards and reports for leadership and supported user training to maximize Salesforce adoption.
+      </div>
+      <div class="exp-tags" aria-label="Technologies used">
+        <span class="exp-tag">Salesforce</span><span class="exp-tag">CRM</span>
+        <span class="exp-tag">Workflow Automation</span><span class="exp-tag">Reporting</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal" role="listitem">
+      <div class="timeline-dot" aria-hidden="true"></div>
+      <div class="exp-header">
+        <div class="exp-title">Incident Management Support</div>
+        <span class="exp-period">Apr 2004 – Jan 2010</span>
+      </div>
+      <div class="exp-company">Sutherland Global Services · India</div>
+      <div class="exp-body">
+        Handled ticket escalations, incident severity assessments, and team performance monitoring. Supported Nielsen in-house applications, mentored associates, and provided technical support for U.S.-based QuickBooks users including data backup and Excel report exports.
+      </div>
+      <div class="exp-tags" aria-label="Technologies used">
+        <span class="exp-tag">HEAT CRM</span><span class="exp-tag">Incident Management</span>
+        <span class="exp-tag">QuickBooks</span><span class="exp-tag">Team Leadership</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── SKILLS ─── -->
+<div class="divider" role="separator"></div>
+<section class="section" id="skills" aria-labelledby="skills-title">
+  <div class="section-header reveal">
+    <div class="section-tag">03 — Skills</div>
+    <h2 class="section-title" id="skills-title">Technical <em>Arsenal</em></h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-icon" aria-hidden="true">📊</div>
+      <h3>Data Visualization</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span>
+        <span class="skill-tag">QlikView</span><span class="skill-tag">Apache Superset</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon" aria-hidden="true">🐍</div>
+      <h3>Programming</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span><span class="skill-tag">R</span>
+        <span class="skill-tag">SQL</span><span class="skill-tag">DAX</span>
+        <span class="skill-tag">TypeScript</span><span class="skill-tag">Java</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon" aria-hidden="true">🗄️</div>
+      <h3>Databases</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">SQL Server</span><span class="skill-tag">MySQL</span>
+        <span class="skill-tag">PostgreSQL</span><span class="skill-tag">AWS Redshift</span>
+        <span class="skill-tag">DynamoDB</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon" aria-hidden="true">☁️</div>
+      <h3>Cloud & Platform</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">AWS</span><span class="skill-tag">Azure</span>
+        <span class="skill-tag">Power Automate</span><span class="skill-tag">S3</span>
+        <span class="skill-tag">Salesforce</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon" aria-hidden="true">🤖</div>
+      <h3>Machine Learning</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Market Basket Analysis</span>
+        <span class="skill-tag">RFM Modelling</span>
+        <span class="skill-tag">Classification</span>
+        <span class="skill-tag">Sentiment Analysis</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon" aria-hidden="true">🔧</div>
+      <h3>Tools & Methods</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">VS Code</span><span class="skill-tag">PyCharm</span>
+        <span class="skill-tag">Jupyter</span><span class="skill-tag">RStudio</span>
+        <span class="skill-tag">SharePoint</span><span class="skill-tag">Selenium</span>
+        <span class="skill-tag">Data Modelling</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DASHBOARDS ─── -->
+<div class="divider" role="separator"></div>
+<section class="section" id="dashboards" aria-labelledby="dash-title">
+  <div class="section-header reveal">
+    <div class="section-tag">04 — Live Dashboards</div>
+    <h2 class="section-title" id="dash-title">Power BI in <em>Action</em></h2>
+  </div>
+
+  <!-- ✅ PBI 1 — click-to-load to defer heavy iframe -->
+  <div class="pbi-section reveal" id="pbi-hospitality">
+    <div class="pbi-label">Dashboard 01 — Hospitality Analytics</div>
+    <h3 class="pbi-title">Hospitality Performance Dashboard</h3>
+    <p class="pbi-desc">
+      A unified real-time view of hospitality performance across properties and markets. Tracks Revenue, RevPAR, ADR,
+      and Occupancy % to identify revenue gaps, demand trends, and underperforming properties. Interactive analysis
+      by room category, city, and booking platform supports data-driven pricing and channel strategy decisions.
+    </p>
+    <div class="iframe-wrap" id="wrap-hospitality">
+      <div class="iframe-placeholder" onclick="loadIframe('wrap-hospitality', 'https://app.powerbi.com/view?r=eyJrIjoiZjllZWVjMGEtODRiOC00MjcxLWFkMDQtNDBjMzNlMTIwOGNiIiwidCI6IjczMjAwNGQzLWMyYTEtNDNmZS04NWFjLWVjZWZhMzc1NWQyYiIsImMiOjh9', 'Hospitality Analytics Dashboard')">
+        <p>📊 Hospitality Performance Dashboard</p>
+        <button class="load-btn">▶ Load Dashboard</button>
+      </div>
+      <iframe title="Hospitality Analytics Dashboard" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- ✅ PBI 2 — click-to-load -->
+  <div class="pbi-section reveal" id="pbi-sales">
+    <div class="pbi-label">Dashboard 02 — Sales KPI</div>
+    <h3 class="pbi-title">Sales Performance vs. Targets Dashboard</h3>
+    <p class="pbi-desc">
+      Built on a star-schema model with advanced DAX measures: Total Sales, YTD Sales, Variance %, and Target Achievement
+      using CALCULATE, DIVIDE, DATESYTD, and context transition techniques. Features week-over-week comparisons,
+      conditional formatting, dynamic KPIs, and cross-filtering by team, salesperson, and time period.
+    </p>
+    <div class="iframe-wrap" id="wrap-sales">
+      <div class="iframe-placeholder" onclick="loadIframe('wrap-sales', 'https://app.powerbi.com/view?r=eyJrIjoiYzA2NDE0ZmUtYTJjNS00MmY3LWIwMTYtYjkwZTM4MTQ1ZWQ0IiwidCI6IjczMjAwNGQzLWMyYTEtNDNmZS04NWFjLWVjZWZhMzc1NWQyYiIsImMiOjh9', 'Sales KPI Dashboard')">
+        <p>📈 Sales Performance vs. Targets Dashboard</p>
+        <button class="load-btn">▶ Load Dashboard</button>
+      </div>
+      <iframe title="Sales KPI Dashboard" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MAP ─── -->
+<div class="divider" role="separator"></div>
+<section class="section" id="r-maps" aria-labelledby="map-title">
+  <div class="section-header reveal">
+    <div class="section-tag">05 — Global Footprint</div>
+    <h2 class="section-title" id="map-title">Countries <em>Worked</em></h2>
+  </div>
+  <p style="color:var(--muted);font-size:0.9rem;margin-bottom:1.5rem;" class="reveal">
+    An interactive R-generated map visualizing the countries where I've delivered analytics projects and built data solutions.
+  </p>
+  <div class="map-wrap reveal">
+    <!-- ✅ lazy loading on map iframe -->
+    <iframe src="Pages/map_with_country_highlights_and_hover_images1.html"
+            title="Interactive map of countries where Arun has worked"
+            loading="lazy"></iframe>
+  </div>
+</section>
+<!-- ✅ Bug fix: was </section missing closing > -->
+
+<!-- ─── CONTACT ─── -->
+<div class="divider" role="separator"></div>
+<section class="section" id="contact" aria-labelledby="contact-title">
+  <div class="contact-grid">
+    <div class="contact-text reveal">
+      <div class="section-tag">06 — Get In Touch</div>
+      <h3 id="contact-title">Let's Build Something<br><em>Insightful</em></h3>
+      <p>
+        Open to data analyst, BI consultant, and analytics lead roles globally.
+        Whether it's a full-time opportunity or a challenging project, I'd love to connect.
+      </p>
+      <a href="mailto:arun.neelamegam2@gmail.com" class="btn-primary">Send Me an Email →</a>
+    </div>
+
+    <div class="contact-links reveal">
+      <a href="mailto:arun.neelamegam2@gmail.com" class="contact-link">
+        <span class="contact-link-icon" aria-hidden="true">✉️</span>
+        <div class="contact-link-info">
+          <small>Email</small>
+          <strong>arun.neelamegam2@gmail.com</strong>
+        </div>
+      </a>
+      <!-- ✅ rel="noopener noreferrer" on all _blank links -->
+      <a href="https://www.linkedin.com/in/arun-neelamegam/" target="_blank" rel="noopener noreferrer" class="contact-link">
+        <span class="contact-link-icon" aria-hidden="true">💼</span>
+        <div class="contact-link-info">
+          <small>LinkedIn</small>
+          <strong>linkedin.com/in/arun-neelamegam</strong>
+        </div>
+      </a>
+      <a href="https://github.com/Arun-Neelamegam" target="_blank" rel="noopener noreferrer" class="contact-link">
+        <span class="contact-link-icon" aria-hidden="true">🐙</span>
+        <div class="contact-link-info">
+          <small>GitHub</small>
+          <strong>github.com/Arun-Neelamegam</strong>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer role="contentinfo">
+  <span>© 2025 <strong>Arun Neelamegam</strong> · All Rights Reserved</span>
+  <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:rgba(136,153,170,0.6);">
+    Data Analyst · BI Consultant · AWS Certified
+  </span>
+</footer>
+
+<script>
+  // ─── Custom Cursor (pointer devices only) ───
+  if (window.matchMedia('(pointer: fine)').matches) {
+    const cursor = document.getElementById('cursor');
+    const ring   = document.getElementById('cursorRing');
+    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      cursor.style.left = mouseX + 'px';
+      cursor.style.top  = mouseY + 'px';
+    });
+
+    function animateRing() {
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      ring.style.left = ringX + 'px';
+      ring.style.top  = ringY + 'px';
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'translate(-50%,-50%) scale(2)';
+        ring.style.transform   = 'translate(-50%,-50%) scale(1.4)';
+        ring.style.borderColor = 'rgba(201,168,76,0.8)';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+        ring.style.transform   = 'translate(-50%,-50%) scale(1)';
+        ring.style.borderColor = 'rgba(201,168,76,0.5)';
+      });
+    });
+  }
+
+  // ─── Scroll Reveal ───
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => io.observe(el));
+
+  // ─── Sticky Header Shrink ───
+  window.addEventListener('scroll', () => {
+    document.querySelector('header').style.padding =
+      window.scrollY > 50 ? '0.75rem 3rem' : '1.25rem 3rem';
+  }, { passive: true }); // ✅ passive listener for scroll performance
+
+  // ─── Mobile Nav ───
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  // Close mobile nav on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileNav.classList.contains('open')) closeMobileNav();
+  });
+
+  // ─── Click-to-load iframes (saves ~2MB+ on initial page load) ───
+  function loadIframe(wrapId, src, title) {
+    const wrap = document.getElementById(wrapId);
+    const iframe = wrap.querySelector('iframe');
+    iframe.src = src;
+    iframe.title = title;
+    wrap.classList.add('loaded');
+  }
+</script>
 </body>
 </html>
